@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRD Document Filing System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>HRD Document Filing System</h1>
+        <div>
+            <label for="category">Category:</label>
+            <select id="category">
+                <option value="Personal_Records">Personal Records</option>
+                <option value="Leave_Records">Leave Records</option>
+                <option value="Performance_Reviews">Performance Reviews</option>
+                <option value="Miscellaneous">Miscellaneous</option>
+            </select>
+        </div>
+        <div>
+            <label for="filename">Filename:</label>
+            <input type="text" id="filename" placeholder="Enter filename">
+        </div>
+        <div>
+            <label for="content">Content:</label>
+            <textarea id="content" placeholder="Enter document content"></textarea>
+        </div>
+        <button onclick="addDocument()">Add Document</button>
+        <button onclick="viewDocuments()">View Documents</button>
+        <button onclick="retrieveDocument()">Retrieve Document</button>
+        <button onclick="deleteDocument()">Delete Document</button>
+        <div id="response"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
