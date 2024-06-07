@@ -25,29 +25,24 @@ function loadDocuments() {
     fetch('/documents')
     .then(response => response.json())
     .then(data => {
-        const documentList = document.getElementById('document-list');
-        documentList.innerHTML = '';
+        const tbody = document.querySelector('#document-table tbody');
+        tbody.innerHTML = '';
         data.forEach(doc => {
-            const div = document.createElement('div');
-            div.innerHTML = `
-                <h3>${doc.subject}</h3>
-                <p>Serial Number: ${doc.serialNumber}</p>
-                <p>Reference ID: ${doc.referenceID}</p>
-                <p>Date: ${new Date(doc.dateOfDocument).toLocaleDateString()}</p>
-                <p>Time: ${doc.timeOfDocument}</p>
-                <p>From: ${doc.fromEntity}</p>
-                <a href="${doc.pdfPath}" target="_blank">View PDF</a>
-                <h4>Actions:</h4>
-                <ul>
-                    ${doc.actions.map(action => `<li>${action.actionName} (Deadline: ${new Date(action.deadline).toLocaleDateString()}, Pending: ${new Date(action.pendingDate).toLocaleDateString()})</li>`).join('')}
-                </ul>
-            `;
-            documentList.appendChild(div);
-        });
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-}
-
-loadDocuments();
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${doc.serialNumber}</td>
+                <td>${doc.referenceID}</td>
+                <td>${new Date(doc.dateOfDocument).toLocaleDateString()}</td>
+                <td>${doc.timeOfDocument}</td>
+                <td>${doc.subject}</td>
+                <td>${doc.fromEntity}</td>
+                <td><a href="${doc.pdfPath}" target="_blank">View PDF</a></td>
+                <td>
+                    ${doc.actions.map(action => `
+                        <div>
+                            <p>${action.actionName} (Deadline: ${new Date(action.deadline).toLocaleDateString()}, Pending: ${new Date(action.pendingDate).toLocaleDateString()})</p>
+                            ${action.actionPdfPath ? `<a href="${action.actionPdfPath}" target="_blank">View Action PDF</a>` : ''}
+                        </div>
+                    `).join('')}
+                </td>
+           
