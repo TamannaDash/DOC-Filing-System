@@ -7,27 +7,65 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Document Filing System</h1>
-    <form id="document-form" enctype="multipart/form-data">
-        <label for="serialNumber">Serial Number:</label>
-        <input type="number" id="serialNumber" name="serialNumber" required><br>
-        <label for="referenceID">Reference ID:</label>
-        <input type="text" id="referenceID" name="referenceID" required><br>
-        <label for="dateOfDocument">Date of Document:</label>
-        <input type="date" id="dateOfDocument" name="dateOfDocument" required><br>
-        <label for="timeOfDocument">Time of Document:</label>
-        <input type="time" id="timeOfDocument" name="timeOfDocument" required><br>
-        <label for="subject">Subject:</label>
-        <input type="text" id="subject" name="subject" required><br>
-        <label for="fromEntity">From (Entity):</label>
-        <input type="text" id="fromEntity" name="fromEntity" required><br>
-        <label for="pdf">Attach PDF:</label>
-        <input type="file" id="pdf" name="pdf" accept="application/pdf" required><br>
-        <label for="actions">Actions (JSON format):</label>
-        <textarea id="actions" name="actions" required></textarea><br>
-        <button type="submit">Submit</button>
-    </form>
-    <div id="document-list"></div>
+    <div class="container">
+        <h1>Document Filing System</h1>
+        <form id="document-form" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="serialNumber">Serial Number:</label>
+                <input type="number" id="serialNumber" name="serialNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="referenceID">Reference ID:</label>
+                <input type="text" id="referenceID" name="referenceID" required>
+            </div>
+            <div class="form-group">
+                <label for="dateOfDocument">Date of Document:</label>
+                <input type="date" id="dateOfDocument" name="dateOfDocument" required>
+            </div>
+            <div class="form-group">
+                <label for="timeOfDocument">Time of Document:</label>
+                <input type="time" id="timeOfDocument" name="timeOfDocument" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+                <label for="fromEntity">From (Entity):</label>
+                <input type="text" id="fromEntity" name="fromEntity" required>
+            </div>
+            <div class="form-group">
+                <label for="pdf">Attach PDF:</label>
+                <input type="file" id="pdf" name="pdf" accept="application/pdf" required>
+            </div>
+            <div class="form-group">
+                <label for="actionPdf">Attach Action PDF (Optional):</label>
+                <input type="file" id="actionPdf" name="actionPdf" accept="application/pdf">
+            </div>
+            <div class="form-group">
+                <label for="actions">Actions (JSON format):</label>
+                <textarea id="actions" name="actions" required></textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <table id="document-table">
+            <thead>
+                <tr>
+                    <th>Serial Number</th>
+                    <th>Reference ID</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Subject</th>
+                    <th>From</th>
+                    <th>PDF</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Documents will be dynamically loaded here -->
+            </tbody>
+        </table>
+    </div>
 
     <script src="scripts.js"></script>
 </body>
