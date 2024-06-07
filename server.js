@@ -25,7 +25,8 @@ const documentSchema = new mongoose.Schema({
         {
             actionName: String,
             deadline: Date,
-            pendingDate: Date
+            pendingDate: Date,
+            actionPdfPath: String
         }
     ]
 });
@@ -43,7 +44,14 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-app.post('/documents', upload.single('pdf'), (req, res) => {
+app.post('/documents', upload.fields([{ name: 'pdf' }, { name: 'actionPdf' }]), (req, res) => {
+    const actions = JSON.parse(req.body.actions);
+    actions.forEach(action => {
+        if (req.files.actionPdf) {
+            action.actionPdfPath = req.files.actionPdf[0].path;
+        }
+    });
+
     const newDocument = new Document({
         serialNumber: req.body.serialNumber,
         referenceID: req.body.referenceID,
@@ -51,8 +59,8 @@ app.post('/documents', upload.single('pdf'), (req, res) => {
         timeOfDocument: req.body.timeOfDocument,
         subject: req.body.subject,
         fromEntity: req.body.fromEntity,
-        pdfPath: req.file.path,
-        actions: JSON.parse(req.body.actions)
+        pdfPath: req.files.pdf[0].path,
+        actions: actions
     });
 
     newDocument.save()
