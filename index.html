@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document Filing System</title>
+    <title>DRDO Document Filing System</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <img src="drdo-logo.png" alt="DRDO Logo" class="logo">
+        <h1>DRDO Document Filing System</h1>
+    </header>
     <div class="container">
-        <h1>Document Filing System</h1>
         <form id="document-form" enctype="multipart/form-data">
+            <h2>Submit a New Document</h2>
             <div class="form-group">
                 <label for="serialNumber">Serial Number:</label>
                 <input type="number" id="serialNumber" name="serialNumber" required>
@@ -48,6 +52,8 @@
             </div>
             <button type="submit">Submit</button>
         </form>
+
+        <h2>Document List</h2>
         <table id="document-table">
             <thead>
                 <tr>
@@ -67,7 +73,9 @@
             </tbody>
         </table>
     </div>
-
+    <footer>
+        <p>&copy; 2024 Defence Research and Development Organisation (DRDO)</p>
+    </footer>
     <script src="scripts.js"></script>
 </body>
 </html>
