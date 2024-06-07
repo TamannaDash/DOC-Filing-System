@@ -45,4 +45,28 @@ function loadDocuments() {
                         </div>
                     `).join('')}
                 </td>
-           
+                <td>${getReminder(doc.actions)}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+function getReminder(actions) {
+    const now = new Date();
+    const reminders = actions.map(action => {
+        const deadline = new Date(action.deadline);
+        const timeDiff = deadline - now;
+        const daysRemaining = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+        if (daysRemaining <= 10) {
+            return `<span class="reminder">${daysRemaining} days remaining</span>`;
+        }
+        return '';
+    });
+    return reminders.filter(reminder => reminder).join('<br>');
+}
+
+loadDocuments();
