@@ -9,7 +9,7 @@ body {
 header {
     background-color: #002a4e;
     color: white;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     position: relative;
 }
@@ -18,7 +18,7 @@ header .logo {
     position: absolute;
     left: 20px;
     top: 10px;
-    height: 20px;
+    height: 30px;
 }
 
 .container {
