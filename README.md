@@ -15,7 +15,8 @@ Organize documents into categories for easy retrieval.
 ## Search Functionality: 
 Quick access to documents through search.
 
-User Management: Role-based access control for document security.
+## User Management:
+Role-based access control for document security.
 
 Version Control: Maintain document history with version tracking.
 
