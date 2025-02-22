@@ -12,7 +12,8 @@ Users can upload various file types.
 ## Categorization: 
 Organize documents into categories for easy retrieval.
 
-Search Functionality: Quick access to documents through search.
+## Search Functionality: 
+Quick access to documents through search.
 
 User Management: Role-based access control for document security.
 
