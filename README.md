@@ -9,7 +9,8 @@ The DOC-Filing-System is a document management system designed to organize, stor
 ## Document Upload: 
 Users can upload various file types.
 
-Categorization: Organize documents into categories for easy retrieval.
+## Categorization: 
+Organize documents into categories for easy retrieval.
 
 Search Functionality: Quick access to documents through search.
 
